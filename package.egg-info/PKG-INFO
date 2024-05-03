@@ -1,0 +1,160 @@
+Metadata-Version: 2.1
+Name: package
+Version: 0.1
+Summary: driver for micropython 
+Author: author
+Author-email: test@email.com
+License: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# ISE_template_Pypip
+
+This repository focused in build project of micropython uning thonny free code and implement new mechanics for more people. 
+
+> [!NOTE]
+> This  repository its focus for OS windows.
+
+fristly, required a account in [Pypip](https://pypi.org/account/login/) is a index where find a multibles libraries and packages projects differents of python. 
+
+> [!WARNING]  
+> You need config a token in you file local filename `.pypirc` in the path `"C:/Users/NameUser/.pypirc"`
+> ```python
+> [pypi]
+> username = __token__
+> assword = <PyPI token>
+> ```
+
+
+You can register and upload your projects, in goal of application used technologies for microcontrollers and free code because its neccesarry for advance. 
+For more information read [here](https://packaging.python.org/en/latest/specifications/pypirc/)
+
+## Envoirement
+
+You require two install libraries 
+
+```bash
+pip install --upgrade twine
+```
+
+and 
+
+```bash
+pip install wheel
+```
+
+## Files 
+
+The files is neccesary for build project you need a config 
+
+Create you file using a class simple for example code:
+
+```py
+# calculator.py
+class Calculator:
+    def __init__(self, numbers):
+        self.numbers = numbers
+
+    def sum(self):
+        return sum(self.numbers)
+
+    def subtract(self):
+        result = self.numbers[0]
+        for num in self.numbers[1:]:
+            result -= num
+        return result
+
+    def multiply(self):
+        result = self.numbers[0]
+        for num in self.numbers[1:]:
+            result *= num
+        return result
+
+    def divide(self):
+        result = self.numbers[0]
+        for num in self.numbers[1:]:
+            result /= num
+        return result
+```
+
+save your file in a directory indepent ./package/calculator.py
+in a file __init__.py import a library before
+
+```python
+# __init__.py
+
+from package.calculator import Calculator
+```
+> [!CAUTION]
+> The name file code is calculator.py and the class us Calculator
+
+The directory has a next strucure
+
+```bash
+./package/ 
+    __init__.py
+    calculator.py
+```
+
+
+## MANIFEST.in
+
+***MANIFEST.in*** files is a recourse for save a stucture of package recomend save use this structure 
+
+```
+include README.md
+include LICENSE
+recursive-include recourse *.py
+
+```
+
+finally file ***setup.py*** this file sava a configuration of metadata neccesary for build project. the recomentation for use is add next features:
+
+```python
+import pathlib
+from setuptools import find_packages, setup
+
+HERE = pathlib.Path(__file__).parent
+
+VERSION = '0.x.x'
+PACKAGE_NAME = 'package'
+AUTHOR = 'Author name '
+AUTHOR_EMAIL = 'name@email.com'
+LICENSE = 'License'
+DESCRIPTION = 'decription about project.'
+# Read the contents of your README file for the long description
+with open('README.md', 'r', encoding='utf-8') as f:
+    LONG_DESCRIPTION = f.read()
+
+# Add your required packages to INSTALL_REQUIRES list
+INSTALL_REQUIRES = []
+
+setup(
+    name=PACKAGE_NAME,
+    version=VERSION,
+    description=DESCRIPTION,
+    long_description=LONG_DESCRIPTION,
+    long_description_content_type='text/markdown',  # Specify the type of content
+    author=AUTHOR,
+    author_email=AUTHOR_EMAIL,
+    install_requires=INSTALL_REQUIRES,
+    license=LICENSE,
+    packages=find_packages(),
+    include_package_data=True
+)
+```
+## build
+
+for build is easy, need a write command 
+```
+python setup.py sdist bdist_wheel
+```
+
+
+# Example usage
+numbers = [2, 4, 6, 8]
+calculator = Calculator(numbers)
+print(calculator.sum())       # Output: 20
+print(calculator.subtract())  # Output: -16
+print(calculator.multiply())  # Output: 384
+print(calculator.divide())    # Output: 0.0625
