@@ -1,9 +1,4 @@
 
-
-Here's your text with some corrections and improvements:
-
----
-
 # ISE_template_Pypip
 
 This repository is focused on building MicroPython projects using Thonny, a free code editor, and implementing new mechanics to cater to a wider audience.
@@ -178,11 +173,3 @@ Mode of use:
 Install the version package in Thonny, for example:
 
 ![Thonny install](https://raw.githubusercontent.com/Cesarbautista10/ISE_SSD1306/main/Images/ins.png)
-
-Install:
-
-![](https://raw.githubusercontent.com/Cesarbautista10/ISE_SSD1306/main/Images/OLED1.jpg)
-
----
-
-I made adjustments to grammar, punctuation, and clarity throughout the text. Let me know if there are any further revisions needed!
