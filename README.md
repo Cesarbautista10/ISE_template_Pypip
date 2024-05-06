@@ -34,7 +34,8 @@ pip install wheel
 
 ## Files
 
-The following files are necessary for building the project. You need to configure:
+The following files are necessary for building the project.
+
 
 Create your file using a simple class as an example:
 
@@ -77,6 +78,7 @@ from package.calculator import Calculator
 > [!CAUTION]
 > The filename is `calculator.py`, and the class used is `Calculator`.
 
+
 The directory structure is as follows:
 
 ```bash
@@ -85,7 +87,7 @@ The directory structure is as follows:
     calculator.py
 ```
 
-## MANIFEST.in
+> [!NOTE] "package" is a placeholder name for the package. You can rename this directory and its files as needed.## MANIFEST.in
 
 The ***MANIFEST.in*** file is a resource for saving the structure of the package. It's recommended to use this structure:
 
